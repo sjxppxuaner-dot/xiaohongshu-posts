@@ -44,6 +44,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+    flex-wrap: wrap;
   }
   .brand {
     display: flex;
@@ -165,16 +166,6 @@
   .card small {
     color: var(--text-muted);
   }
-  .pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: rgba(125,95,255,0.14);
-    color: #dfe7ff;
-    font-size: 0.92rem;
-  }
   .filter-panel {
     display: grid;
     grid-template-columns: repeat(3, minmax(180px, 1fr));
@@ -250,6 +241,7 @@
     margin-bottom: 16px;
     position: relative;
     z-index: 1;
+    font-size: 0.95rem;
   }
   .post-tags {
     display: flex;
@@ -273,6 +265,7 @@
     gap: 12px;
     position: relative;
     z-index: 1;
+    flex-wrap: wrap;
   }
   .copy-btn {
     border: none;
@@ -329,6 +322,150 @@
     flex-wrap: wrap;
     gap: 12px;
   }
+  
+  /* Upload Form Styles */
+  .upload-container {
+    background: linear-gradient(180deg, rgba(18,23,50,0.96), rgba(10,13,26,0.96));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+  .upload-form {
+    display: grid;
+    gap: 18px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .form-group {
+    display: grid;
+    gap: 8px;
+  }
+  .form-group label {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.95rem;
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: "Courier New", monospace;
+  }
+  .form-group textarea:focus,
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(125,95,255,0.12);
+    box-shadow: 0 0 12px rgba(125,95,255,0.2);
+  }
+  .form-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #7d5fff, #a78bfa);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 14px 28px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 0.95rem;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(125,95,255,0.35);
+  }
+  .btn-secondary {
+    background: rgba(255,255,255,0.08);
+    color: var(--text-muted);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 999px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.12);
+  }
+  .upload-status {
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin-top: 14px;
+    display: none;
+  }
+  .upload-status.success {
+    background: rgba(79,209,197,0.15);
+    border: 1px solid rgba(79,209,197,0.3);
+    color: #4fd1c5;
+    display: block;
+  }
+  .upload-status.error {
+    background: rgba(255,107,107,0.15);
+    border: 1px solid rgba(255,107,107,0.3);
+    color: #ff6b6b;
+    display: block;
+  }
+  .uploaded-items {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .uploaded-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(79,209,197,0.3);
+    border-radius: 14px;
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .uploaded-item-info {
+    flex: 1;
+  }
+  .uploaded-item-title {
+    color: #4fd1c5;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .uploaded-item-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .btn-delete {
+    background: rgba(255,107,107,0.2);
+    color: #ff6b6b;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+  }
+  .btn-delete:hover {
+    background: rgba(255,107,107,0.3);
+  }
+  
   @media (max-width: 900px) {
     .grid-3,
     .posts-grid,
@@ -349,13 +486,12 @@
   <div class="topbar">
     <div class="brand">
       <strong>内容日历 / 发布规划</strong>
-      <span>支持小红书、抖音、视频号，按日期、平台筛选与复制文案。</span>
+      <span>支持小红书、抖音、视频号，上传、筛选与复制文案。</span>
     </div>
     <nav class="nav-links">
       <a href="#overview">页面概览</a>
-      <a href="#platforms">平台文案</a>
+      <a href="#upload">上传文案</a>
       <a href="#schedule">发布日期筛选</a>
-      <a href="#copy">复制与共享</a>
     </nav>
   </div>
 </header>
@@ -363,80 +499,80 @@
   <section class="hero" id="overview">
     <div class="hero-title">
       <h1>一站式内容发布日历与文案中心</h1>
-      <p>点击导航快速跳转到不同阶段，按照发布平台和发布日期筛选文案，复制口播脚本与笔记，方便运营团队上传、协作与复盘。</p>
+      <p>点击导航快速跳转到不同阶段，上传和管理你的文案，按照发布平台和发布日期筛选，复制口播脚本与笔记，方便运营团队上传、协作与复盘。</p>
     </div>
     <div class="hero-actions">
-      <button type="button" onclick="scrollToSection('platforms')">查看平台文案</button>
+      <button type="button" onclick="scrollToSection('upload')">上传我的文案</button>
       <a href="#schedule">按日期筛选</a>
       <a href="#copy">复制文案</a>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="upload">
     <div class="section-header">
       <div>
-        <h2>阶段规划</h2>
-        <p>将内容制作分为四个清晰阶段，快速跳转并落实每一部分。</p>
+        <h2>上传文案</h2>
+        <p>输入文案标题、内容、发布日期和平台，上传后即可在日历中筛选和管理。</p>
       </div>
     </div>
-    <div class="stage-grid">
-      <div class="stage-step">
-        <strong>阶段 1</strong>
-        <h3>内容规划与选题</h3>
-        <p>按照平台特点梳理核心主题、目标受众与发布时间节点，确定小红书、抖音、视频号三条线。</p>
-      </div>
-      <div class="stage-step">
-        <strong>阶段 2</strong>
-        <h3>文案与脚本编写</h3>
-        <p>生成发布文案、口播脚本、标题与标签，并配合图文、视频脚本方向。</p>
-      </div>
-      <div class="stage-step">
-        <strong>阶段 3</strong>
-        <h3>发布与跟进</h3>
-        <p>按日期与平台记录发布计划，复制上传内容后及时同步给运营与内容审核人员。</p>
-      </div>
-      <div class="stage-step">
-        <strong>阶段 4</strong>
-        <h3>复盘与迭代</h3>
-        <p>发布后收集表现数据，补充笔记与后续改进方案，为下次活动提供参考。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="platforms">
-    <div class="section-header">
+    <div class="upload-container">
+      <form class="upload-form" id="uploadForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="uploadTitle">文案标题 *</label>
+            <input type="text" id="uploadTitle" placeholder="例：春季彩妆新品测评" required>
+          </div>
+          <div class="form-group">
+            <label for="uploadDate">发布日期 *</label>
+            <input type="date" id="uploadDate" required>
+          </div>
+          <div class="form-group">
+            <label for="uploadPlatform">发布平台 *</label>
+            <select id="uploadPlatform" required>
+              <option value="">-- 选择平台 --</option>
+              <option value="小红书">小红书</option>
+              <option value="抖音">抖音</option>
+              <option value="视频号">视频号</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="uploadCaption">发布文案 *</label>
+            <textarea id="uploadCaption" placeholder="输入发布文案..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="uploadScript">口播脚本 *</label>
+            <textarea id="uploadScript" placeholder="输入口播脚本..." required></textarea>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="uploadTags">标签（用逗号分隔）</label>
+            <input type="text" id="uploadTags" placeholder="例：彩妆,测评,春季">
+          </div>
+          <div class="form-group">
+            <label for="uploadStage">制作阶段</label>
+            <select id="uploadStage">
+              <option value="内容规划">内容规划</option>
+              <option value="文案">文案</option>
+              <option value="发布待审">发布待审</option>
+              <option value="已发布">已发布</option>
+              <option value="复盘">复盘</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">✓ 上传文案</button>
+          <button type="reset" class="btn-secondary">清空表单</button>
+        </div>
+        <div id="uploadStatus" class="upload-status"></div>
+      </form>
       <div>
-        <h2>平台文案库</h2>
-        <p>当前已支持：小红书、抖音、视频号。可扩展到更多渠道，便于多人阅读与复制。</p>
-      </div>
-    </div>
-    <div class="grid-3">
-      <div class="card">
-        <h3>小红书</h3>
-        <p>图文 / 笔记形式，适合长文案、话题标签、灵感笔记与分享感受。</p>
-        <ul>
-          <li>内容类型：种草笔记、实用攻略、开箱体验</li>
-          <li>发布形式：图文+短视频</li>
-          <li>适用群体：年轻女性、时尚美妆、生活方式</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>抖音</h3>
-        <p>短视频平台，适合短口播脚本、变现爆点与节奏感强的内容。</p>
-        <ul>
-          <li>内容类型：挑战、剧情、口播介绍</li>
-          <li>发布形式：15-60 秒短视频</li>
-          <li>适用群体：广泛年轻用户、粉丝互动强</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>视频号</h3>
-        <p>连接微信生态，适合知识分享、生活笔记与产品介绍。</p>
-        <ul>
-          <li>内容类型：轻知识、产品测评、个人观点</li>
-          <li>发布形式：短视频 + 图文预告</li>
-          <li>适用群体：微信社交圈、专业兴趣用户</li>
-        </ul>
+        <h3 style="color: var(--text); margin-top: 20px; margin-bottom: 12px;">已上传的文案</h3>
+        <div id="uploadedItemsList" class="uploaded-items">
+          <p style="color: var(--text-muted);">暂无已上传的文案</p>
+        </div>
       </div>
     </div>
   </section>
@@ -477,16 +613,17 @@
       </div>
     </div>
     <div class="note-box">
-      <p>提示：此页面支持多人查看与复制，适合作为内容日历的静态共享页。如果后续希望多人编辑，可以将页面部署到 GitHub Pages 或公司内部文档服务器。</p>
+      <p>提示：此页面支持多人查看与复制，所有上传的文案会存储在你的浏览器本地。如果后续希望多人编辑和同步，可以将页面与数据库集成，实现团队协作。</p>
     </div>
   </section>
 </main>
 <footer class="footer">
   <div>页面文件：<strong>index.html</strong></div>
-  <div>状态：已优化为移动端展示、平台筛选和复制功能。</div>
+  <div>状态：已支持文案上传、本地存储、筛选和复制功能。</div>
 </footer>
+
 <script>
-const items = [
+const defaultItems = [
   { id: 1, platform: '小红书', date: '2026-05-18', title: '春季彩妆新品测评', script: '大家好，今天分享几款春季彩妆新品，上妆效果自然显气色，适合日常通勤与约会...', caption: '春季彩妆新品推荐，质地轻薄又显色，带你试色 3 款热销口红。', tags: ['彩妆', '测评', '春季'], stage: '文案' },
   { id: 2, platform: '小红书', date: '2026-05-18', title: '减脂早餐搭配分享', script: '早安小姐姐们，今天教你三套低卡高蛋白早餐，既能饱腹又不会长肉...', caption: '健康减脂早餐安排，简单易做，适合忙碌上班族。', tags: ['减脂', '早餐', '健康'], stage: '文案' },
   { id: 3, platform: '小红书', date: '2026-05-20', title: '春夏穿搭 5 套推荐', script: '这几套春夏穿搭既显高级又不失活力，颜色搭配上控制 3 种以内...', caption: '春夏穿搭合集，适合约会、通勤、周末出游。', tags: ['穿搭', '春夏', '时尚'], stage: '文案' },
@@ -497,22 +634,111 @@ const items = [
   { id: 8, platform: '小红书', date: '2026-05-25', title: '居家健身 15 分钟训练', script: '不想去健身房？这套 15 分钟全身燃脂训练，零器械也能出汗...', caption: '居家健身计划，适合忙碌上班族和健身新手。', tags: ['健身', '居家', '燃脂'], stage: '复盘' },
   { id: 9, platform: '小红书', date: '2026-05-26', title: '春日花艺摆件灵感', script: '用 5 种常见花材，快速做出浪漫桌面花艺，适合家居和礼物布置...', caption: '花艺灵感分享，简单 3 步打造高级感摆件。', tags: ['花艺', '生活美学', '灵感'], stage: '内容规划' },
   { id: 10, platform: '小红书', date: '2026-05-27', title: '每日自律清单推荐', script: '想要坚持打卡习惯？这份自律清单帮你从早到晚安排高效节奏...', caption: '自律清单模板，适合新手打造稳定生活习惯。', tags: ['自律', '清单', '效率'], stage: '文案' },
-  { id: 11, platform: '抖音', date: '2026-05-19', title: '快速妆容 30 秒挑战', script: '镜头前直接展示“0 化妆”到“精致妆容”转变，配合节奏音乐...', caption: '30 秒快节奏妆容变身，适合女生日常短视频。', tags: ['妆容', '挑战', '短视频'], stage: '内容规划' },
+  { id: 11, platform: '抖音', date: '2026-05-19', title: '快速妆容 30 秒挑战', script: '镜头前直接展示"0 化妆"到"精致妆容"转变，配合节奏音乐...', caption: '30 秒快节奏妆容变身，适合女生日常短视频。', tags: ['妆容', '挑战', '短视频'], stage: '内容规划' },
   { id: 12, platform: '抖音', date: '2026-05-22', title: '一周穿搭 VLOG', script: '以日常穿搭作为视频主线，快速切换 7 套造型，建议配轻快音乐...', caption: '一周穿搭快速展示，吸引时尚用户关注。', tags: ['穿搭', 'VLOG', '时尚'], stage: '文案' },
   { id: 13, platform: '视频号', date: '2026-05-20', title: '下午茶会话分享', script: '打开镜头，聊几个实用心理小技巧，让观众在周末放松时刻听进来...', caption: '轻松话题分享，适合作为视频号日常内容。', tags: ['心理', '放松', '轻分享'], stage: '内容规划' },
-  { id: 14, platform: '视频号', date: '2026-05-24', title: '产品测评小贴士', script: '三分钟讲清楚这款产品的亮点、使用感与适合人群，结尾追加“你会考虑吗？”。', caption: '短评形式产品测评，适合视频号用户消费参考。', tags: ['测评', '产品', '技巧'], stage: '文案' }
+  { id: 14, platform: '视频号', date: '2026-05-24', title: '产品测评小贴士', script: '三分钟讲清楚这款产品的亮点、使用感与适合人群，结尾追加"你会考虑吗？"。', caption: '短评形式产品测评，适合视频号用户消费参考。', tags: ['测评', '产品', '技巧'], stage: '文案' }
 ];
+
+let items = [...defaultItems];
 
 const platformFilter = document.getElementById('platformFilter');
 const dateFilter = document.getElementById('dateFilter');
 const searchInput = document.getElementById('searchInput');
 const postGrid = document.getElementById('postGrid');
+const uploadForm = document.getElementById('uploadForm');
+const uploadStatus = document.getElementById('uploadStatus');
+const uploadedItemsList = document.getElementById('uploadedItemsList');
+
+function loadUploadedItems() {
+  const saved = localStorage.getItem('uploadedItems');
+  return saved ? JSON.parse(saved) : [];
+}
+
+function saveUploadedItems(uploadedItems) {
+  localStorage.setItem('uploadedItems', JSON.stringify(uploadedItems));
+}
+
+function displayUploadedItems() {
+  const uploadedItems = loadUploadedItems();
+  if (uploadedItems.length === 0) {
+    uploadedItemsList.innerHTML = '<p style="color: var(--text-muted);">暂无已上传的文案</p>';
+    return;
+  }
+  uploadedItemsList.innerHTML = uploadedItems.map((item, index) => `
+    <div class="uploaded-item">
+      <div class="uploaded-item-info">
+        <div class="uploaded-item-title">${item.title}</div>
+        <div class="uploaded-item-meta">${item.platform} • ${item.date} • ${item.stage}</div>
+      </div>
+      <button class="btn-delete" onclick="deleteUploadedItem(${index})">删除</button>
+    </div>
+  `).join('');
+}
+
+function deleteUploadedItem(index) {
+  const uploadedItems = loadUploadedItems();
+  uploadedItems.splice(index, 1);
+  saveUploadedItems(uploadedItems);
+  displayUploadedItems();
+  mergeAllItems();
+  populateFilters();
+  renderItems();
+}
+
+uploadForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const newItem = {
+    id: Date.now(),
+    platform: document.getElementById('uploadPlatform').value,
+    date: document.getElementById('uploadDate').value,
+    title: document.getElementById('uploadTitle').value,
+    caption: document.getElementById('uploadCaption').value,
+    script: document.getElementById('uploadScript').value,
+    tags: document.getElementById('uploadTags').value.split(',').map(t => t.trim()).filter(t => t),
+    stage: document.getElementById('uploadStage').value,
+    isUploaded: true
+  };
+  
+  const uploadedItems = loadUploadedItems();
+  uploadedItems.push(newItem);
+  saveUploadedItems(uploadedItems);
+  
+  uploadStatus.className = 'upload-status success';
+  uploadStatus.textContent = '✓ 文案已成功上传！正在更新日历...';
+  
+  uploadForm.reset();
+  
+  mergeAllItems();
+  displayUploadedItems();
+  populateFilters();
+  renderItems();
+  
+  setTimeout(() => {
+    uploadStatus.className = 'upload-status';
+  }, 3000);
+});
+
+function mergeAllItems() {
+  const uploadedItems = loadUploadedItems();
+  items.length = 0;
+  items.push(...defaultItems);
+  items.push(...uploadedItems);
+}
 
 function getUniqueValues(key) {
   return [...new Set(items.map(item => item[key]))].sort();
 }
 
 function populateFilters() {
+  while (platformFilter.options.length > 1) {
+    platformFilter.remove(1);
+  }
+  while (dateFilter.options.length > 1) {
+    dateFilter.remove(1);
+  }
+  
   const platforms = getUniqueValues('platform');
   platforms.forEach(platform => {
     const option = document.createElement('option');
@@ -544,11 +770,12 @@ function renderItems() {
 
   postGrid.innerHTML = filtered.map(item => {
     const tagsHtml = item.tags.map(tag => `<span>#${tag}</span>`).join('');
+    const badgeClass = item.isUploaded ? 'badge-pill' : 'badge-pill';
     return `
       <article class="post-card" data-platform="${item.platform}" data-date="${item.date}">
         <div class="post-header">
           <div>
-            <div class="badge-pill">${item.platform}</div>
+            <div class="badge-pill">${item.platform}${item.isUploaded ? ' (已上传)' : ''}</div>
             <h3 class="post-title">${item.title}</h3>
           </div>
           <div class="post-meta">
@@ -593,6 +820,8 @@ platformFilter.addEventListener('change', renderItems);
 dateFilter.addEventListener('change', renderItems);
 searchInput.addEventListener('input', renderItems);
 
+mergeAllItems();
+displayUploadedItems();
 populateFilters();
 renderItems();
 </script>
