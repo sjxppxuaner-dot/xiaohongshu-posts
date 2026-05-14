@@ -2,451 +2,599 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>小红书运营文案 10 条</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社交平台内容日历</title>
 <style>
   :root {
-    color-scheme: light;
-    font-family: "PingFang SC", "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
-    --bg: #f4f7f9;
-    --card: #ffffff;
-    --border: rgba(15,94,86,0.14);
-    --text: #111827;
-    --secondary: #4b5563;
-    --accent: #1d9e75;
-    --accent-warning: #ba7517;
-    --accent-danger: #d85a30;
-    --radius: 18px;
+    color-scheme: dark;
+    --bg: #090b17;
+    --surface: rgba(20, 28, 62, 0.92);
+    --surface-strong: rgba(14, 20, 44, 0.96);
+    --text: #edf2ff;
+    --text-muted: #99a5c3;
+    --primary: #7d5fff;
+    --accent: #ff9f1c;
+    --success: #4fd1c5;
+    --border: rgba(255,255,255,0.12);
+    --shadow: 0 24px 80px rgba(0,0,0,0.25);
   }
   * { box-sizing: border-box; }
-  html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--text); }
-  body { -webkit-text-size-adjust: none; }
-  a { color: inherit; text-decoration: none; }
-  .page { max-width: 760px; margin: 0 auto; padding: 16px; }
-  .header { background: linear-gradient(135deg, #1d9e75 0%, #3fbea0 100%); border-radius: 24px; padding: 22px 20px; color: #fff; box-shadow: 0 18px 40px rgba(0,0,0,0.08); }
-  .header h1 { margin: 0 0 10px; font-size: 1.9rem; line-height: 1.2; }
-  .header p { margin: 0; opacity: 0.95; font-size: 0.96rem; }
-  .summary { margin: 18px 0; display: grid; gap: 12px; }
-  .summary .badge { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; background: #fff; color: var(--text); font-size: 0.86rem; font-weight: 600; }
-  .summary .badge span { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-  .content { display: grid; gap: 18px; }
-  .post-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-  .post-head { padding: 18px 18px 14px; border-bottom: 1px solid rgba(15,94,86,0.08); }
-  .tag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.02em; padding: 6px 12px; border-radius: 999px; background: rgba(29,158,117,0.12); color: var(--accent); }
-  .tag.trust { background: rgba(186,117,23,0.12); color: var(--accent-warning); }
-  .tag.convert { background: rgba(216,90,48,0.12); color: var(--accent-danger); }
-  .post-meta { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--secondary); font-size: 0.88rem; }
-  .post-title { margin: 14px 0 0; font-size: 1.18rem; font-weight: 700; line-height: 1.5; }
-  .block { padding: 18px; }
-  .block-title { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 0.82rem; color: var(--secondary); letter-spacing: 0.12em; text-transform: uppercase; }
-  .block-box { background: #f7fafc; border-radius: 16px; padding: 14px 16px; font-size: 0.95rem; color: var(--secondary); white-space: pre-wrap; }
-  .block-box.caption { border-left: 4px solid var(--accent); background: #fff; }
-  .block-box.caption.trust { border-left-color: var(--accent-warning); }
-  .block-box.caption.convert { border-left-color: var(--accent-danger); }
-  .tags { margin-top: 4px; font-size: 0.88rem; color: var(--accent); line-height: 1.7; }
-  .footer { margin: 28px 0 18px; padding: 18px 18px 20px; border-radius: 22px; background: #eaf7f1; color: #0f6e56; font-size: 0.94rem; }
-  .footer strong { display: block; margin-bottom: 8px; }
-  .button { display: inline-block; margin-top: 10px; padding: 12px 16px; border-radius: 14px; background: #1d9e75; color: #fff; font-weight: 700; text-align: center; }
-  @media (max-width: 500px) { .header { padding: 18px 16px; } .post-head { padding: 16px; } .block { padding: 16px; } }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: radial-gradient(circle at top, rgba(125,95,255,0.16), transparent 32%),
+                radial-gradient(circle at 20% 20%, rgba(255,159,28,0.16), transparent 20%),
+                linear-gradient(180deg, #060816 0%, #0f1325 100%);
+    color: var(--text);
+  }
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(18px);
+    background: rgba(6,8,22,0.88);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .topbar {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .brand strong {
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+  }
+  .brand span {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    padding: 10px 14px;
+    border-radius: 12px;
+    transition: background 0.3s, color 0.3s;
+  }
+  .nav-links a:hover {
+    background: rgba(125,95,255,0.14);
+    color: var(--text);
+  }
+  main {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 24px 64px;
+  }
+  .hero {
+    display: grid;
+    gap: 20px;
+    padding: 30px 0 24px;
+  }
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .hero-title h1 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 3.4rem);
+    line-height: 1.05;
+  }
+  .hero-title p {
+    max-width: 760px;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hero-actions button,
+  .hero-actions a {
+    border: none;
+    border-radius: 999px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.2s, background 0.2s;
+    text-decoration: none;
+  }
+  .hero-actions button {
+    background: var(--primary);
+    color: #fff;
+  }
+  .hero-actions button:hover,
+  .hero-actions a:hover { transform: translateY(-1px); }
+  .hero-actions a {
+    background: rgba(255,255,255,0.08);
+    color: var(--text);
+  }
+  .section {
+    margin-top: 30px;
+  }
+  .section-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .section-header h2 {
+    margin: 0;
+    font-size: 1.45rem;
+  }
+  .section-header p {
+    margin: 0;
+    color: var(--text-muted);
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+  }
+  .card h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+  }
+  .card p,
+  .card li,
+  .card small {
+    color: var(--text-muted);
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(125,95,255,0.14);
+    color: #dfe7ff;
+    font-size: 0.92rem;
+  }
+  .filter-panel {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .filter-panel select,
+  .filter-panel input {
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.05);
+    color: var(--text);
+    padding: 14px 16px;
+    font-size: 0.96rem;
+  }
+  .filter-panel label {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 6px;
+  }
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .post-card {
+    background: linear-gradient(180deg, rgba(18,23,50,0.96), rgba(10,13,26,0.96));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(125,95,255,0.18), transparent 32%);
+    pointer-events: none;
+  }
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .post-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .badge-pill {
+    background: rgba(255,255,255,0.08);
+    color: var(--text);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+  }
+  .post-title {
+    margin: 14px 0 12px;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    z-index: 1;
+    position: relative;
+  }
+  .post-content {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .post-tags span {
+    background: rgba(255,255,255,0.06);
+    color: #e5e9ff;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+  }
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .copy-btn {
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #7d5fff, #ff9f1c);
+    color: #09101f;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  .copy-btn:hover { transform: translateY(-1px); }
+  .cta-text {
+    font-size: 0.94rem;
+    color: #b0bef7;
+  }
+  .note-box {
+    border-left: 4px solid rgba(125,95,255,0.9);
+    background: rgba(125,95,255,0.08);
+    padding: 18px 20px;
+    border-radius: 18px;
+    color: var(--text);
+    margin-top: 18px;
+  }
+  .stage-grid {
+    display: grid;
+    gap: 16px;
+  }
+  .stage-step {
+    display: grid;
+    gap: 12px;
+    padding: 20px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .stage-step h3 {
+    margin: 0;
+  }
+  .stage-step p { margin: 0; }
+  .stage-step strong {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: var(--accent);
+  }
+  .footer {
+    margin-top: 50px;
+    padding: 26px 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  @media (max-width: 900px) {
+    .grid-3,
+    .posts-grid,
+    .filter-panel {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 640px) {
+    .topbar { flex-direction: column; align-items: flex-start; }
+    .hero-actions { width: 100%; }
+    .hero-actions button, .hero-actions a { width: 100%; text-align: center; }
+    .post-header { flex-direction: column; align-items: flex-start; }
+  }
 </style>
 </head>
 <body>
-<div class="page">
-  <section class="header">
-    <h1>小红书运营文案 10 条</h1>
-    <p>本页面已生成更正式的移动端展示版本，包含全部 10 条文案内容与原始栏目格式，适合手机端浏览与分享。</p>
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <strong>内容日历 / 发布规划</strong>
+      <span>支持小红书、抖音、视频号，按日期、平台筛选与复制文案。</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#overview">页面概览</a>
+      <a href="#platforms">平台文案</a>
+      <a href="#schedule">发布日期筛选</a>
+      <a href="#copy">复制与共享</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="hero" id="overview">
+    <div class="hero-title">
+      <h1>一站式内容发布日历与文案中心</h1>
+      <p>点击导航快速跳转到不同阶段，按照发布平台和发布日期筛选文案，复制口播脚本与笔记，方便运营团队上传、协作与复盘。</p>
+    </div>
+    <div class="hero-actions">
+      <button type="button" onclick="scrollToSection('platforms')">查看平台文案</button>
+      <a href="#schedule">按日期筛选</a>
+      <a href="#copy">复制文案</a>
+    </div>
   </section>
 
-  <section class="summary">
-    <div class="badge"><span style="background:#1d9e75"></span>引流型</div>
-    <div class="badge trust"><span style="background:#ba7517"></span>信任型</div>
-    <div class="badge convert"><span style="background:#d85a30"></span>转化型</div>
+  <section class="section">
+    <div class="section-header">
+      <div>
+        <h2>阶段规划</h2>
+        <p>将内容制作分为四个清晰阶段，快速跳转并落实每一部分。</p>
+      </div>
+    </div>
+    <div class="stage-grid">
+      <div class="stage-step">
+        <strong>阶段 1</strong>
+        <h3>内容规划与选题</h3>
+        <p>按照平台特点梳理核心主题、目标受众与发布时间节点，确定小红书、抖音、视频号三条线。</p>
+      </div>
+      <div class="stage-step">
+        <strong>阶段 2</strong>
+        <h3>文案与脚本编写</h3>
+        <p>生成发布文案、口播脚本、标题与标签，并配合图文、视频脚本方向。</p>
+      </div>
+      <div class="stage-step">
+        <strong>阶段 3</strong>
+        <h3>发布与跟进</h3>
+        <p>按日期与平台记录发布计划，复制上传内容后及时同步给运营与内容审核人员。</p>
+      </div>
+      <div class="stage-step">
+        <strong>阶段 4</strong>
+        <h3>复盘与迭代</h3>
+        <p>发布后收集表现数据，补充笔记与后续改进方案，为下次活动提供参考。</p>
+      </div>
+    </div>
   </section>
 
-  <section class="content" id="postContainer"></section>
-
-  <section class="footer">
-    <strong>本地访问地址</strong>
-    <p>如果你在当前电脑打开页面，直接使用浏览器即可访问；如果希望在本机局域网内分享，可运行本地服务器后使用：</p>
-    <p><strong>http://127.0.0.1:8000/xiaohongshu_10posts_mobile.html</strong></p>
-    <p>如果你需要，我可以再生成一个本地服务器启动脚本。</p>
+  <section class="section" id="platforms">
+    <div class="section-header">
+      <div>
+        <h2>平台文案库</h2>
+        <p>当前已支持：小红书、抖音、视频号。可扩展到更多渠道，便于多人阅读与复制。</p>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <h3>小红书</h3>
+        <p>图文 / 笔记形式，适合长文案、话题标签、灵感笔记与分享感受。</p>
+        <ul>
+          <li>内容类型：种草笔记、实用攻略、开箱体验</li>
+          <li>发布形式：图文+短视频</li>
+          <li>适用群体：年轻女性、时尚美妆、生活方式</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>抖音</h3>
+        <p>短视频平台，适合短口播脚本、变现爆点与节奏感强的内容。</p>
+        <ul>
+          <li>内容类型：挑战、剧情、口播介绍</li>
+          <li>发布形式：15-60 秒短视频</li>
+          <li>适用群体：广泛年轻用户、粉丝互动强</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>视频号</h3>
+        <p>连接微信生态，适合知识分享、生活笔记与产品介绍。</p>
+        <ul>
+          <li>内容类型：轻知识、产品测评、个人观点</li>
+          <li>发布形式：短视频 + 图文预告</li>
+          <li>适用群体：微信社交圈、专业兴趣用户</li>
+        </ul>
+      </div>
+    </div>
   </section>
-</div>
+
+  <section class="section" id="schedule">
+    <div class="section-header">
+      <div>
+        <h2>按发布日期筛选</h2>
+        <p>选择平台和发布时间区间，快速定位需要发布的文案与口播脚本。</p>
+      </div>
+    </div>
+    <div class="filter-panel">
+      <div>
+        <label for="platformFilter">平台筛选</label>
+        <select id="platformFilter">
+          <option value="all">全部平台</option>
+        </select>
+      </div>
+      <div>
+        <label for="dateFilter">发布日期</label>
+        <select id="dateFilter">
+          <option value="all">全部日期</option>
+        </select>
+      </div>
+      <div>
+        <label for="searchInput">搜索标题 / 标签</label>
+        <input id="searchInput" type="search" placeholder="输入关键词快速筛选...">
+      </div>
+    </div>
+    <div class="posts-grid" id="postGrid"></div>
+  </section>
+
+  <section class="section" id="copy">
+    <div class="section-header">
+      <div>
+        <h2>复制与共享</h2>
+        <p>点击复制按钮即可复制发布文案和口播脚本，方便上传到运营系统或团队协作工具。</p>
+      </div>
+    </div>
+    <div class="note-box">
+      <p>提示：此页面支持多人查看与复制，适合作为内容日历的静态共享页。如果后续希望多人编辑，可以将页面部署到 GitHub Pages 或公司内部文档服务器。</p>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div>页面文件：<strong>index.html</strong></div>
+  <div>状态：已优化为移动端展示、平台筛选和复制功能。</div>
+</footer>
 <script>
-const posts = [
-  {type:'flow', typeLabel:'引流型', week:'第1周发布', mainTitle:'3岁/5岁/8岁，英语启蒙路线完全不一样——附分龄书单', pubTitle:'3岁、5岁、8岁启蒙方法差太多了！不同年龄不同打法，附分龄书单', script:`姐妹们，我最近被问到最多的一个问题就是：我孩子XX岁了，英语启蒙从哪开始？
-
-但其实这个问题没有统一答案——因为3岁、5岁、8岁，方法差得不是一点点。
-
-3岁以内，孩子语言系统还没建立，靠的是大量听力输入。Super Simple Songs、鹅妈妈童谣、小猪佩奇——反复刷，刷到孩子能跟着哼就对了。别急着认字，别急着拼读。
-
-到了5岁左右，可以开始引入绘本和分级读物了。海尼曼GK、牛津树1~3级，图多字少，孩子一看就懂。这个阶段最重要的是让孩子"觉得英语有意思"。
-
-8岁以上，如果前面基础还不错，可以开始系统的自然拼读+分级阅读双轨并进，同步跟上学校进度，RAZ的C~F级非常适合这个阶段。
-
-不同年龄，重点完全不一样。我整理了一份分龄书单，评论区扣"书单"我发给你。`, caption:`不同年龄，英语启蒙的重点差得不是一点点 📚
-
-很多妈妈一上来就给孩子买一堆书，结果孩子不感兴趣、自己也累——其实是方法没对上年龄段。
-
-✅ 0~3岁：听力磨耳朵为主
-· Super Simple Songs 每天循环
-· 鹅妈妈童谣、小猪佩奇反复刷
-· 不认字没关系，建立语感才是核心
-
-✅ 4~6岁：绘本启蒙 + 建立阅读兴趣
-· 海尼曼 GK级 → 1级 循序渐进
-· 牛津树 1~3级，图多字少看图说话
-· 每天亲子共读10分钟，比报班有效
-
-✅ 7岁以上：自然拼读 + 分级阅读双轨
-· 蒲公英/牛津自然拼读打好解码基础
-· RAZ C~F级同步跟上，兼顾学校进度
-· 开始接触桥梁书：Fly Guy、Frog and Toad
-
-🔖 我整理了各年龄段详细书单，评论区扣【书单】免费领取～
-
-#英语启蒙 #分级阅读 #英语启蒙书单 #RAZ分级阅读 #自然拼读 #育儿 #宝妈经验`, tags:'#英语启蒙 #分级阅读 #英语启蒙书单 #RAZ分级阅读 #自然拼读 #育儿'},
-  {type:'flow', typeLabel:'引流型', week:'第1周发布', mainTitle:'RAZ A~Z 每个级别该读哪些书？整理了一份避坑指南', pubTitle:'RAZ分级全攻略！A~Z每级推荐书 + 升级时机判断，建议收藏', script:`今天专门来讲讲RAZ分级阅读怎么用，这是我踩了很多坑之后总结出来的。
-
-RAZ有26个级别，从AA到Z，很多妈妈一看就懵了：我孩子应该从哪级开始？怎么判断该升级了？
-
-先说起点。如果孩子没接触过英语，建议从AA或A级开始。不要觉得太简单，这个阶段是建立信心和阅读习惯的，读流利比读难更重要。
-
-怎么判断升级？用"五指法则"——孩子读一页，遇到5个以上不认识的词，说明这本太难了，要降级。遇到0~1个不认识，可以考虑升级了。
-
-每个级别的重点我来快速说一下：
-A~C级，以图片为主，适合刚起步的孩子；
-D~F级，开始出现简单句子，可以引导孩子复述；
-G~J级，故事情节丰富起来，开始培养理解力；
-K级以上，文字量增加，建议配合自然拼读一起用。
-
-我做了一份RAZ各级别推荐书目+升级判断表，评论区扣"RAZ"我发你。`, caption:`RAZ分级阅读怎么用？很多人买了一堆但用错了方法 📖
-
-整理了一份从AA级到J级的避坑指南，希望能帮到正在纠结的妈妈们——
-
-【起点怎么选】
-→ 完全零基础：从AA/A级开始
-→ 有一定听力基础：测试B~C级
-→ 原则：宁可偏易，别一开始就挫败感
-
-【升级判断：五指法则】
-读一页书，遇到超过5个不认识的词 → 太难，降级
-遇到1个以下不认识 → 可以升级了
-刚刚好 → 继续读这个级别
-
-【各级别重点】
-AA~C级：图片为主，建立阅读习惯
-D~F级：简单句出现，练习复述
-G~J级：故事情节，培养理解力
-K级以上：文字量增加，配合拼读使用
-
-💡 很多妈妈问我在哪里找RAZ资源，其实现在有整合了RAZ全套的app，不用一本本买，省心很多。
-
-评论区扣【RAZ】我把各级别推荐书目表发给你～
-
-#RAZ分级阅读 #英语启蒙 #原版绘本 #英语分级阅读 #自然拼读 #育儿干货`, tags:'#RAZ分级阅读 #英语启蒙 #原版绘本 #英语分级阅读 #自然拼读'},
-  {type:'flow', typeLabel:'引流型', week:'第2周发布', mainTitle:'自然拼读到底要不要学？学了之后为什么还是读不了书', pubTitle:'学了自然拼读孩子还是读不了书？可能缺了这关键一步', script:`很多妈妈问我：我家孩子自然拼读学了一年了，怎么还是读不了RAZ的书？
-
-这个问题我太懂了，我家娃当初也是这样。我们花了大半年学完了一套拼读课，结果拿起书来，还是一个字一个字地拼，又慢又费劲，读完了也不知道意思。
-
-问题出在哪呢？
-
-自然拼读只解决了"认读"的问题，就是看到字母组合知道怎么发音。但真正的流利阅读需要三个东西：拼读解码、高频词识记、理解力，缺一不可。
-
-很多孩子学完拼读，高频词一个没背，碰到the、was、said这些高频词就卡住了。这些词不能靠拼读猜，必须靠记忆认出来。
-
-解决方法其实不复杂：拼读课结束之后，同步开始刷高频词。220个Sight Words，每天认5~10个，两个月内基本能搞定。然后配合分级读物，边读边查，慢慢就通了。
-
-这个坑我踩过，希望能帮你少走弯路。`, caption:`学了自然拼读还是读不了书？说明缺了这一步 ⚠️
-
-这是我被问最多的问题之一。很多家长投入大量时间学完了拼读课，结果孩子面对真实的书还是卡壳——
-
-❌ 问题不在拼读学得不好
-✅ 问题在：流利阅读需要三个支柱同时在线
-
-【支柱一：拼读解码】
-· 看字母组合知道怎么发音
-· 这是自然拼读负责的部分
-
-【支柱二：高频词识记】
-· the / was / said / they / have...
-· 这些词无法靠拼读猜，必须靠眼熟
-· 220个Sight Words，每天5个，2个月搞定
-
-【支柱三：阅读理解力】
-· 读懂了才有动力继续读
-· 图文结合的分级读物帮助建立理解
-
-💡 正确姿势：拼读 + 高频词 + 分级读物三线并进，不是学完拼读再读书，而是同步进行。
-
-评论区扣【拼读】我把高频词表和搭配书单发给你
-
-#自然拼读 #英语启蒙 #Sight Words #高频词 #RAZ分级阅读`, tags:'#自然拼读 #英语启蒙 #Sight Words #高频词 #RAZ分级阅读'},
-  {type:'flow', typeLabel:'引流型', week:'第2周发布', mainTitle:'海尼曼、牛津树、红火箭……分级读物哪套最值得入？一次说清', pubTitle:'海尼曼 vs 牛津树 vs 红火箭，到底选哪套？一次说清楚', script:`好，今天来回答一个高频问题：市面上那么多分级读物，到底哪套最值得买？
-
-我把最常见的几套都用过，来说说各自的特点。
-
-海尼曼，我觉得是最适合中国孩子的入门读物。图片大、故事简单，GK和G1级非常适合幼儿园到小学低年级。词汇量控制很好，不会一上来就吓到孩子。
-
-牛津树，故事是连贯的，主角是一家人，孩子会有代入感。从1级开始，人物越来越丰富，故事越来越长。如果你家孩子喜欢追剧式的连续故事，牛津树会更有粘性。
-
-红火箭，美式发音，语言更口语化，也更接近日常对话。适合已经有一定基础，想提升听说能力的孩子。
-
-兰登分级，内容偏知识类，有科学、自然、历史，适合对知识类内容感兴趣的孩子，跟海尼曼可以搭配着用。
-
-如果只能选一套启蒙，我会推海尼曼。如果预算够，海尼曼+牛津树组合，基本覆盖了大部分启蒙阶段。`, caption:`海尼曼 / 牛津树 / 红火箭 / 兰登，选哪套？说清楚了 📚
-
-这四套是被问得最多的，我用过都来说说——
-
-📗 海尼曼（Heinemann）
-· 最适合中国孩子入门
-· 图片大、故事简、词汇量控制好
-· GK+G1两级性价比最高
-· 推荐人群：幼儿园~小学一年级
-
-📘 牛津树（Oxford Reading Tree）
-· 故事连贯，主角一家人，孩子有代入感
-· 从1级到9级跨度大，可以陪伴很长时间
-· 适合喜欢"追剧"式连续故事的孩子
-
-📕 红火箭（Red Rocket）
-· 美式发音，更口语化
-· 适合有一定基础、想提升听说的阶段
-
-📙 兰登分级（Random House）
-· 知识类内容为主（科学/自然/历史）
-· 适合对世界好奇、喜欢非虚构的孩子
-
-💡 只选一套：海尼曼
-有预算：海尼曼 + 牛津树组合
-孩子大了一些：红火箭或兰登替换海尼曼`, tags:'#英语启蒙 #海尼曼 #牛津树 #红火箭 #分级阅读 #英语启蒙书单'},
-  {type:'flow', typeLabel:'引流型', week:'第2~3周发布', mainTitle:'孩子学了两年英语，为什么还是说不出口？我找到原因了', pubTitle:'学了两年英语还是哑巴？不是孩子的问题，是这个根本没做', script:`我家孩子学英语两年了，报了班，买了书，但你让他说一句英语，他就低下头不说话。
-
-我一直以为是孩子内向，直到我去研究了一下，才发现——这根本不是性格问题。
-
-问题出在输入和输出的比例上。
-
-孩子两年的学习，几乎全是被动输入：老师讲、家长读、音频放。没有任何"开口输出"的机会和场景。人类语言习得有个规律：要积累足够量的可理解性输入，才能自然触发输出欲望。
-
-两年的被动学习，如果没有配合大量真实情景下的听力输入——那种听了就能懂的内容，孩子的大脑根本就没有积累够"能说的内容"。
-
-怎么解决？不是强迫孩子开口，而是换输入方式。
-
-把纯课本换成孩子真正感兴趣的内容：动画、儿歌、分级读物里的故事。让孩子在理解的基础上反复听，听够了，他自己就会开口了。
-
-我家是从BBC的Alphablocks开始的，然后配合RAZ的音频跟读，大概三个月之后，他开始主动说英语单词了。`, caption:`孩子英语"哑巴"，不是内向，是这步根本没做到位 ❗
-
-很多孩子报班两年、买书一堆，就是不开口说——妈妈们别急，先来找原因。
-
-【核心问题】
-被动接收了两年，但缺乏"可理解性输入"
-→ 孩子没有足够的"听懂了又感兴趣"的内容积累
-→ 大脑没有形成"有东西可以说"的素材库
-
-【解决路径：先输入，再等输出】
-
-第一步：把课本换成孩子真正感兴趣的内容
-· BBC Alphablocks（字母动画，超上头）
-· Super Simple Songs（洗脑级儿歌）
-· 小猪佩奇英文版（熟悉的故事更容易理解）
-
-第二步：跟读练习建立开口习惯
-· RAZ分级读物有配音，让孩子跟着音频读
-· 不要求完美，跟着读就是进步
-
-第三步：给他说话的理由
-· 问问题："这只动物叫什么？"
-· 游戏化：猜词、接龙，把开口变成玩
-
-⏰ 我家从调整输入方式到孩子主动开口说：大约3个月
-
-评论区扣【开口】我把我们家用的内容清单发给你
-
-#英语启蒙 #英语口语 #儿童英语 #RAZ分级阅读 #英语输入 #育儿干货`, tags:'#英语启蒙 #英语口语 #儿童英语 #RAZ分级阅读 #英语输入'},
-  {type:'flow', typeLabel:'引流型', week:'第3周发布', mainTitle:'小学英语从满分到不及格，就差这套阅读习惯没养成', pubTitle:'小学英语成绩掉下来的孩子，90%都缺这个习惯（附补救方案）', script:`今天来说一个让我很揪心的现象。
-
-很多孩子幼儿园英语特别好，进了小学反而越来越吃力，三年级开始出现分化，有的孩子满分，有的孩子开始不及格。
-
-差距究竟在哪？
-
-我观察了身边的孩子，发现那些成绩好的，几乎有一个共同点：他们从小养成了英语阅读习惯。不是刷题，不是背单词，是读书。
-
-阅读量带来的是什么？词汇量在语境里自然积累、语感的建立、长句的理解能力。这些东西靠刷题根本练不来。
-
-三年级以后，小学英语开始考阅读理解和写作，这时候阅读量不够的孩子就会暴露出来。
-
-怎么补救？
-
-三年级以前，每天15分钟英语阅读，哪怕只是绘本。三年级以后，开始引入分级读物，RAZ的D~G级非常适合同步配合公立学校进度。
-
-不要等孩子考砸了再急，习惯要趁早养。`, caption:`小学英语突然跟不上？三年级分化的根本原因在这里 📌
-
-每年到三年级，都有一批孩子英语成绩开始下滑——原因几乎是一样的。
-
-【为什么三年级会分化】
-→ 三年级开始考阅读理解和写作
-→ 这两项靠的是词汇积累 + 语感 + 理解力
-→ 这三样东西，靠刷题根本练不出来
-
-【阅读量不够的具体表现】
-· 单词认识，但长句读不懂
-· 阅读速度慢，考试来不及
-· 写作词汇量少，只会简单句
-· 听力能听懂单词，但听不懂段落
-
-【补救方案：分阶段来】
-
-幼儿园~一年级：
-每天亲子阅读10~15分钟，海尼曼/牛津树绘本为主
-
-二~三年级：
-引入分级读物，RAZ D~G级，同步学校词汇进度
-
-三年级以上：
-桥梁书阶段，开始读Fly Guy、神奇树屋英文版
-
-🔖 我整理了分年级阅读计划，评论区扣【计划】我发给你
-
-#小学英语 #英语启蒙 #英语阅读 #RAZ分级阅读 #英语成绩`, tags:'#小学英语 #英语启蒙 #英语阅读 #RAZ分级阅读'},
-  {type:'trust', typeLabel:'信任型', week:'第2~3周穿插', mainTitle:'陪娃打卡英语第90天，说说我们真实走过的弯路', pubTitle:'陪娃英语打卡90天复盘：这3个坑我们都踩了，分享给你', script:`今天是我们家英语打卡第90天，来做个真实的复盘。
-
-先说结论：孩子进步了，但这90天里我们走了不少弯路。
-
-第一个弯路是：太急。前三周我每天逼他做练习，结果他开始抵触，一听说学英语就皱眉头。后来我狠心停了一周，只让他看英语动画，不要求任何任务，他反而自己开始学了。
-
-第二个弯路是：选材太难。一开始直接给他看RAZ D级，结果他每页都要我帮他读，根本没有独立阅读的感觉。降回A级之后，他读得很流利，自信心回来了，反而进步更快。
-
-第三个弯路是：没有固定仪式感。我一开始学习时间不固定，有时候睡前，有时候吃完饭，孩子根本没形成习惯。后来固定在每天晚餐后20分钟，两周就形成了自动模式。
-
-这90天最大的收获不是某本书读完了，而是孩子开始主动说"妈妈，我们今天读书了没有？"`, caption:`英语打卡90天真实复盘：3个弯路 + 3个有效做法 🗓️
-
-不说漂亮话，讲真实经历——
-
-【踩过的3个坑】
-
-❌ 坑1：太急，逼着做练习
-结果：孩子开始抵触，一提英语就皱眉
-复盘：退一步，先让他觉得有趣，再谈任务
-
-❌ 坑2：选材太难，挫败感太强
-结果：每页都要我帮，完全没有成就感
-复盘：宁可选偏简单的，让他能独立读完
-
-❌ 坑3：时间不固定，习惯没建立
-结果：三天打鱼两天晒网，进步缓慢
-复盘：固定时间段，哪怕只有15分钟
-
-【真正有效的3件事】
-
-✅ 1. 每天固定时间：晚餐后20分钟
-✅ 2. 让孩子选今天读哪本（给他掌控感）
-✅ 3. 读完复述一句话，不要求多，只要开口
-
-90天最大的收获：
-孩子开始主动问"妈妈，今天读书了没有？"
-这比任何成绩单都让我高兴 🥹`, tags:'#英语启蒙打卡 #育儿日记 #英语启蒙 #分级阅读 #亲子阅读'},
-  {type:'trust', typeLabel:'信任型', week:'第3周穿插', mainTitle:'买了六套分级读物之后，我终于想明白了一件事', pubTitle:'买了六套分级读物之后，我后悔了——但也想通了一件事', script:`我要来说一件略微尴尬的事。
-
-在孩子英语启蒙这件事上，我花了大概六千块买分级读物。海尼曼、牛津树、红火箭、兰登，家里书架现在塞得满满当当。
-
-但最近我开始反思一个问题：这些书，孩子每一套都没读完。
-
-不是孩子不努力，是我发现了一个规律：孩子读书的热情是有窗口期的。你买的那套书恰好在他感兴趣的时候到了，就能读下去。错过了，就落灰了。
-
-而且每套书只有一个难度范围，孩子稍微进阶一点，这套就没法用了，又要买新的。
-
-所以我现在终于想明白了：买书这件事，不是越多越好，也不是越贵越好，而是要在合适的时机给孩子合适的内容。
-
-现在我的做法是：只保留孩子当前阶段最爱的2~3本实体书，其他的用数字资源补充。这样既不浪费，孩子反而读得更多了。`, caption:`买了六千块分级读物之后，我想通了这件事 💸
-
-这篇可能是我写过最"打脸"的一篇——
-
-【我买过的分级读物】
-海尼曼全套 / 牛津树1~6级 / 红火箭 / 兰登分级
-加起来差不多六千块，书架放满了
-
-【后来我发现的问题】
-→ 每套书都没读完
-→ 孩子进阶之后，低级别的书就搁置了
-→ 买书热情远大于读书热情
-
-【我终于想明白的一件事】
-孩子的阅读兴趣有窗口期。书到了但孩子不在那个状态，就是浪费。与其囤一大堆，不如随时按需提供内容。
-
-【现在的做法】
-✅ 保留2~3本孩子当下最爱的实体书
-✅ 其他分级读物用数字版补充，按需切换
-✅ 孩子反而读得更多，因为随时有新内容
-
-💡 如果我当初知道有把RAZ/海尼曼/牛津树整合在一起的app，我可能不会买那六套书……
-
-不是打广告，是真实的后悔 😅
-
-评论区有想了解的可以问我，我说说我现在怎么用的`, tags:'#英语启蒙 #分级阅读 #原版绘本 #宝妈经验 #踩坑复盘'},
-  {type:'trust', typeLabel:'信任型', week:'第3周穿插', mainTitle:'这本书，我家娃要我读了47遍——附我们的亲子英语日常', pubTitle:'这本书我们读了47遍，孩子还没腻——亲子英语日常分享', script:`今天来分享一件让我很感动的小事。
-
-我家孩子有一本书，叫《Frog and Toad Are Friends》，他让我读了47遍。不是我数的，是他自己数的，他在书的最后一页画了47个小叉叉。
-
-我一开始以为他是不是哪里没读懂，反复问他。他说，妈妈我就是喜欢，每次听都很高兴。
-
-这件事让我意识到，孩子学英语跟大人不一样。大人学语言追求效率，孩子学语言追求情感。他喜欢Frog和Toad的友谊，喜欢那种温暖的故事氛围，所以反复听对他来说不是重复，是享受。
-
-而且从语言学习角度，这47遍其实非常有价值。他现在能背这本书里几乎所有的句子，发音比我还准，完全是在无意识中积累的。
-
-所以如果你家孩子喜欢反复读某一本书，请不要嫌烦，请配合他。那是他在用自己的方式深度学习。`, caption:`孩子要求读了47遍的那本书 🐸
-
-这篇不讲方法，就分享一个让我很触动的小故事——
-
-《Frog and Toad Are Friends》，我们买了大概8个月了。
-孩子要求我读了47遍——他自己在书的最后一页画了47个叉叉来记数。
-
-起初我以为他是不懂，反复确认。
-后来他跟我说："妈妈我就是喜欢，每次听都很高兴。"
-
-这句话让我重新理解了孩子学英语这件事——
-
-孩子不需要每天换新书，他需要的是"被打动的内容"。
-喜欢一个故事，反复读，无意识背诵，语感自然就来了。
-
-现在他能把这本书里大部分句子复述出来，发音比我还准。
-这不是刷题刷出来的，是47遍爱出来的 🥹
-
-我们亲子英语日常：
-· 每天晚饭后20分钟
-· 孩子选书，我来读，他跟读
-· 读完他讲故事给我听（哪怕一句话也算）
-
-小小的日常，但坚持下来真的有用。`, tags:'#亲子阅读 #英语启蒙 #原版绘本 #英语启蒙打卡 #育儿日记'}
+const items = [
+  { id: 1, platform: '小红书', date: '2026-05-18', title: '春季彩妆新品测评', script: '大家好，今天分享几款春季彩妆新品，上妆效果自然显气色，适合日常通勤与约会...', caption: '春季彩妆新品推荐，质地轻薄又显色，带你试色 3 款热销口红。', tags: ['彩妆', '测评', '春季'], stage: '文案' },
+  { id: 2, platform: '小红书', date: '2026-05-18', title: '减脂早餐搭配分享', script: '早安小姐姐们，今天教你三套低卡高蛋白早餐，既能饱腹又不会长肉...', caption: '健康减脂早餐安排，简单易做，适合忙碌上班族。', tags: ['减脂', '早餐', '健康'], stage: '文案' },
+  { id: 3, platform: '小红书', date: '2026-05-20', title: '春夏穿搭 5 套推荐', script: '这几套春夏穿搭既显高级又不失活力，颜色搭配上控制 3 种以内...', caption: '春夏穿搭合集，适合约会、通勤、周末出游。', tags: ['穿搭', '春夏', '时尚'], stage: '文案' },
+  { id: 4, platform: '小红书', date: '2026-05-21', title: '护肤医美前后真实体验', script: '作为敏感肌，我做了这次医美，恢复期记录分享给你们，避免踩雷...', caption: '医美护肤实录，恢复期注意事项与真实感受。', tags: ['护肤', '医美', '体验'], stage: '复盘' },
+  { id: 5, platform: '小红书', date: '2026-05-22', title: '办公室高效整理术', script: '工作空间杂乱会影响心情，分享 4 个收纳小技巧，让桌面瞬间干净...', caption: '办公室整理技巧，提升效率又美观。', tags: ['办公', '整理', '效率'], stage: '内容规划' },
+  { id: 6, platform: '小红书', date: '2026-05-23', title: '午后能量鸡尾酒推荐', script: '下午茶时间来一杯低卡鸡尾酒，微甜不腻，口感清爽，适合朋友聚会...', caption: '低卡鸡尾酒制作分享，简单 3 步即可完成。', tags: ['生活', '饮品', '分享'], stage: '内容规划' },
+  { id: 7, platform: '小红书', date: '2026-05-24', title: '轻奢旅行箱打包术', script: '出差旅行时，行李箱该怎么收纳，既节省空间又不凌乱？这份清单超实用...', caption: '旅行箱收纳技巧，适合周末短途 / 商务出行。', tags: ['旅行', '收纳', '清单'], stage: '文案' },
+  { id: 8, platform: '小红书', date: '2026-05-25', title: '居家健身 15 分钟训练', script: '不想去健身房？这套 15 分钟全身燃脂训练，零器械也能出汗...', caption: '居家健身计划，适合忙碌上班族和健身新手。', tags: ['健身', '居家', '燃脂'], stage: '复盘' },
+  { id: 9, platform: '小红书', date: '2026-05-26', title: '春日花艺摆件灵感', script: '用 5 种常见花材，快速做出浪漫桌面花艺，适合家居和礼物布置...', caption: '花艺灵感分享，简单 3 步打造高级感摆件。', tags: ['花艺', '生活美学', '灵感'], stage: '内容规划' },
+  { id: 10, platform: '小红书', date: '2026-05-27', title: '每日自律清单推荐', script: '想要坚持打卡习惯？这份自律清单帮你从早到晚安排高效节奏...', caption: '自律清单模板，适合新手打造稳定生活习惯。', tags: ['自律', '清单', '效率'], stage: '文案' },
+  { id: 11, platform: '抖音', date: '2026-05-19', title: '快速妆容 30 秒挑战', script: '镜头前直接展示“0 化妆”到“精致妆容”转变，配合节奏音乐...', caption: '30 秒快节奏妆容变身，适合女生日常短视频。', tags: ['妆容', '挑战', '短视频'], stage: '内容规划' },
+  { id: 12, platform: '抖音', date: '2026-05-22', title: '一周穿搭 VLOG', script: '以日常穿搭作为视频主线，快速切换 7 套造型，建议配轻快音乐...', caption: '一周穿搭快速展示，吸引时尚用户关注。', tags: ['穿搭', 'VLOG', '时尚'], stage: '文案' },
+  { id: 13, platform: '视频号', date: '2026-05-20', title: '下午茶会话分享', script: '打开镜头，聊几个实用心理小技巧，让观众在周末放松时刻听进来...', caption: '轻松话题分享，适合作为视频号日常内容。', tags: ['心理', '放松', '轻分享'], stage: '内容规划' },
+  { id: 14, platform: '视频号', date: '2026-05-24', title: '产品测评小贴士', script: '三分钟讲清楚这款产品的亮点、使用感与适合人群，结尾追加“你会考虑吗？”。', caption: '短评形式产品测评，适合视频号用户消费参考。', tags: ['测评', '产品', '技巧'], stage: '文案' }
 ];
-const container = document.getElementById('postContainer');
-container.innerHTML = posts.map((post, index) => {
-  const colorClass = post.type === 'trust' ? 'trust' : post.type === 'convert' ? 'convert' : '';
-  return `
-  <article class="post-card">
-    <div class="post-head">
-      <span class="tag ${colorClass}">${post.typeLabel}</span>
-      <div class="post-meta">第 ${index + 1} 篇 · ${post.week}</div>
-      <h2 class="post-title">${post.mainTitle}</h2>
-    </div>
-    <div class="block">
-      <div class="block-title">平台发布标题</div>
-      <div class="block-box">${post.pubTitle}</div>
-    </div>
-    <div class="block">
-      <div class="block-title">口播文案（视频旁白/配音）</div>
-      <div class="block-box">${post.script}</div>
-    </div>
-    <div class="block">
-      <div class="block-title">平台正文文案</div>
-      <div class="block-box caption ${colorClass}">${post.caption}</div>
-    </div>
-    <div class="block">
-      <div class="block-title">话题标签</div>
-      <div class="block-box tags">${post.tags}</div>
-    </div>
-  </article>
-  `;
-}).join('');
+
+const platformFilter = document.getElementById('platformFilter');
+const dateFilter = document.getElementById('dateFilter');
+const searchInput = document.getElementById('searchInput');
+const postGrid = document.getElementById('postGrid');
+
+function getUniqueValues(key) {
+  return [...new Set(items.map(item => item[key]))].sort();
+}
+
+function populateFilters() {
+  const platforms = getUniqueValues('platform');
+  platforms.forEach(platform => {
+    const option = document.createElement('option');
+    option.value = platform;
+    option.textContent = platform;
+    platformFilter.appendChild(option);
+  });
+  const dates = getUniqueValues('date');
+  dates.forEach(date => {
+    const option = document.createElement('option');
+    option.value = date;
+    option.textContent = date;
+    dateFilter.appendChild(option);
+  });
+}
+
+function renderItems() {
+  const platformValue = platformFilter.value;
+  const dateValue = dateFilter.value;
+  const keyword = searchInput.value.trim().toLowerCase();
+
+  const filtered = items.filter(item => {
+    const platformMatch = platformValue === 'all' || item.platform === platformValue;
+    const dateMatch = dateValue === 'all' || item.date === dateValue;
+    const text = `${item.title} ${item.script} ${item.caption} ${item.tags.join(' ')}`.toLowerCase();
+    const keywordMatch = !keyword || text.includes(keyword);
+    return platformMatch && dateMatch && keywordMatch;
+  });
+
+  postGrid.innerHTML = filtered.map(item => {
+    const tagsHtml = item.tags.map(tag => `<span>#${tag}</span>`).join('');
+    return `
+      <article class="post-card" data-platform="${item.platform}" data-date="${item.date}">
+        <div class="post-header">
+          <div>
+            <div class="badge-pill">${item.platform}</div>
+            <h3 class="post-title">${item.title}</h3>
+          </div>
+          <div class="post-meta">
+            <span class="badge-pill">${item.date}</span>
+            <span class="badge-pill">${item.stage}</span>
+          </div>
+        </div>
+        <div class="post-content"><strong>发布文案：</strong> ${item.caption}</div>
+        <div class="post-content"><strong>口播脚本：</strong> ${item.script}</div>
+        <div class="post-tags">${tagsHtml}</div>
+        <div class="actions">
+          <button class="copy-btn" data-copy="${encodeURIComponent(item.caption + '\n\n' + item.script)}">复制文案</button>
+          <div class="cta-text">复制后可直接上传或分享给团队。</div>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  if (!filtered.length) {
+    postGrid.innerHTML = '<div class="card"><p>未找到匹配内容，请调整筛选条件或搜索关键词。</p></div>';
+  }
+
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const value = decodeURIComponent(btn.dataset.copy);
+      navigator.clipboard.writeText(value).then(() => {
+        btn.textContent = '已复制 ✓';
+        setTimeout(() => { btn.textContent = '复制文案'; }, 1800);
+      }).catch(() => {
+        btn.textContent = '复制失败';
+        setTimeout(() => { btn.textContent = '复制文案'; }, 1800);
+      });
+    });
+  });
+}
+
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+platformFilter.addEventListener('change', renderItems);
+dateFilter.addEventListener('change', renderItems);
+searchInput.addEventListener('input', renderItems);
+
+populateFilters();
+renderItems();
 </script>
 </body>
 </html>
